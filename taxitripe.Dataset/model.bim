@@ -1,0 +1,1204 @@
+{
+  "compatibilityLevel": 1550,
+  "model": {
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.123.742.0 (23.11)"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"454_calendar\",\"data_dictionary\",\"taxi_zones\",\"Exemple de fichier\",\"Paramètre1\",\"Transformer l'exemple de fichier\",\"Transformer le fichier\",\"taxi_trips\",\"Exemple de fichier (2)\",\"Paramètre2\",\"Transformer l'exemple de fichier (2)\",\"Transformer le fichier (2)\",\"Messure Table\",\"Taxi Messure\"]"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "fr-FR",
+    "cultures": [
+      {
+        "name": "fr-FR",
+        "linguisticMetadata": {
+          "content": {
+            "DynamicImprovement": "HighConfidence",
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "expressions": [
+      {
+        "name": "Exemple de fichier",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Binary"
+          }
+        ],
+        "expression": [
+          "let",
+          "    Source = Folder.Files(\"C:\\Users\\Med Amine\\Downloads\\Taxi Trip\\Taxi Trip\\taxi_trips\"),",
+          "    Navigation1 = Source{0}[Content]",
+          "in",
+          "    Navigation1"
+        ],
+        "kind": "m",
+        "lineageTag": "711ec04a-1f51-4224-83d7-4533c0e6dd84",
+        "queryGroup": "Transformer le fichier à partir de taxi_trips\\Requêtes d'assistance"
+      },
+      {
+        "name": "Paramètre1",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Binary"
+          }
+        ],
+        "expression": "#\"Exemple de fichier\" meta [IsParameterQuery=true, BinaryIdentifier=#\"Exemple de fichier\", Type=\"Binary\", IsParameterQueryRequired=true]",
+        "kind": "m",
+        "lineageTag": "ad1a3a5f-4d3e-4aa1-a226-1a12672fc171",
+        "queryGroup": "Transformer le fichier à partir de taxi_trips\\Requêtes d'assistance"
+      },
+      {
+        "name": "Transformer l'exemple de fichier",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "expression": [
+          "let",
+          "    Source = Csv.Document(Paramètre1,[Delimiter=\",\", Columns=18, Encoding=1252, QuoteStyle=QuoteStyle.None])",
+          "in",
+          "    Source"
+        ],
+        "kind": "m",
+        "lineageTag": "85db14d2-57ef-4398-a272-219df1d56855",
+        "queryGroup": "Transformer le fichier à partir de taxi_trips"
+      },
+      {
+        "name": "Transformer le fichier",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Function"
+          }
+        ],
+        "expression": [
+          "let",
+          "    Source = (Paramètre1 as binary) => let",
+          "    Source = Csv.Document(Paramètre1,[Delimiter=\",\", Columns=18, Encoding=1252, QuoteStyle=QuoteStyle.None])",
+          "in",
+          "    Source",
+          "in",
+          "    Source"
+        ],
+        "kind": "m",
+        "lineageTag": "b3e58182-895f-4ef9-9538-017998b55769",
+        "mAttributes": "[ FunctionQueryBinding = \"{\"\"exemplarFormulaName\"\":\"\"Transformer l\\u0027exemple de fichier\"\"}\" ]",
+        "queryGroup": "Transformer le fichier à partir de taxi_trips\\Requêtes d'assistance"
+      },
+      {
+        "name": "Exemple de fichier (2)",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Binary"
+          }
+        ],
+        "expression": [
+          "let",
+          "    Source = Folder.Files(\"C:\\Users\\Med Amine\\Downloads\\Taxi Trip\\Taxi Trip\\taxi_trips\"),",
+          "    Navigation1 = Source{0}[Content]",
+          "in",
+          "    Navigation1"
+        ],
+        "kind": "m",
+        "lineageTag": "3f18c074-d3d3-40b9-b49c-4f1726f15b5c",
+        "queryGroup": "Transformer le fichier à partir de taxi_trips (2)\\Requêtes d'assistance"
+      },
+      {
+        "name": "Paramètre2",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Binary"
+          }
+        ],
+        "expression": "#\"Exemple de fichier (2)\" meta [IsParameterQuery=true, BinaryIdentifier=#\"Exemple de fichier (2)\", Type=\"Binary\", IsParameterQueryRequired=true]",
+        "kind": "m",
+        "lineageTag": "692f614e-0d9f-48ba-abf9-a40594a78fdf",
+        "queryGroup": "Transformer le fichier à partir de taxi_trips (2)\\Requêtes d'assistance"
+      },
+      {
+        "name": "Transformer l'exemple de fichier (2)",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "expression": [
+          "let",
+          "    Source = Csv.Document(Paramètre2,[Delimiter=\",\", Columns=18, Encoding=1252, QuoteStyle=QuoteStyle.None])",
+          "in",
+          "    Source"
+        ],
+        "kind": "m",
+        "lineageTag": "f5f973c9-1931-41d9-8863-d107847bbf52",
+        "queryGroup": "Transformer le fichier à partir de taxi_trips (2)"
+      },
+      {
+        "name": "Transformer le fichier (2)",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Function"
+          }
+        ],
+        "expression": [
+          "let",
+          "    Source = (Paramètre2 as binary) => let",
+          "    Source = Csv.Document(Paramètre2,[Delimiter=\",\", Columns=18, Encoding=1252, QuoteStyle=QuoteStyle.None])",
+          "in",
+          "    Source",
+          "in",
+          "    Source"
+        ],
+        "kind": "m",
+        "lineageTag": "7d5205aa-9f3d-4a45-94cc-2cb22835565d",
+        "mAttributes": "[ FunctionQueryBinding = \"{\"\"exemplarFormulaName\"\":\"\"Transformer l\\u0027exemple de fichier (2)\"\"}\" ]",
+        "queryGroup": "Transformer le fichier à partir de taxi_trips (2)\\Requêtes d'assistance"
+      },
+      {
+        "name": "Messure Table",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "expression": [
+          "let",
+          "    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"i44FAA==\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#\"Colonne 1\" = _t]),",
+          "    #\"Colonnes supprimées\" = Table.RemoveColumns(Source,{\"Colonne 1\"})",
+          "in",
+          "    #\"Colonnes supprimées\""
+        ],
+        "kind": "m",
+        "lineageTag": "313aa2b2-6fc8-441e-afe4-df8cdb2ec2f4"
+      }
+    ],
+    "queryGroups": [
+      {
+        "annotations": [
+          {
+            "name": "PBI_QueryGroupOrder",
+            "value": "0"
+          }
+        ],
+        "folder": "Transformer le fichier à partir de taxi_trips"
+      },
+      {
+        "annotations": [
+          {
+            "name": "PBI_QueryGroupOrder",
+            "value": "0"
+          }
+        ],
+        "folder": "Transformer le fichier à partir de taxi_trips\\Requêtes d'assistance"
+      },
+      {
+        "annotations": [
+          {
+            "name": "PBI_QueryGroupOrder",
+            "value": "2"
+          }
+        ],
+        "folder": "Transformer le fichier à partir de taxi_trips (2)"
+      },
+      {
+        "annotations": [
+          {
+            "name": "PBI_QueryGroupOrder",
+            "value": "0"
+          }
+        ],
+        "folder": "Transformer le fichier à partir de taxi_trips (2)\\Requêtes d'assistance"
+      }
+    ],
+    "relationships": [
+      {
+        "name": "35f994dd-f0f2-4cf8-905f-ada86c32b686",
+        "fromColumn": "PULocationID",
+        "fromTable": "taxi_trips",
+        "toColumn": "LocationID",
+        "toTable": "taxi_zones"
+      },
+      {
+        "name": "f4c12642-d331-4202-bf74-f1473296efbf",
+        "fromColumn": "date",
+        "fromTable": "taxi_trips",
+        "toColumn": "Date",
+        "toTable": "454_calendar"
+      }
+    ],
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "454_calendar",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "28925031-755d-4976-8824-473e28074b45",
+            "sourceColumn": "Date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FiscalYear",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ef6bc69a-a663-48af-a176-2057a3464691",
+            "sourceColumn": "FiscalYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FiscalQuarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "6cd1edd4-225a-42be-946f-2ca6d53020f0",
+            "sourceColumn": "FiscalQuarter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FiscalMonthNumber",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "b4bd9de6-fb22-4072-a4b3-eb3c0008275e",
+            "sourceColumn": "FiscalMonthNumber",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FiscalMonthOfQuarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "9dd982f6-3c62-42aa-b516-db84246e9137",
+            "sourceColumn": "FiscalMonthOfQuarter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FiscalWeekOfYear",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "79ca0d65-0abc-4a14-9156-92328457cdd0",
+            "sourceColumn": "FiscalWeekOfYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DayOfWeek",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e8962980-0c3e-4f94-8e73-cff6d171cad9",
+            "sourceColumn": "DayOfWeek",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FiscalMonthName",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b8e2693c-35ec-4c12-b5c5-c824978033ce",
+            "sourceColumn": "FiscalMonthName",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FiscalMonthYear",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "17ceb66d-067c-4bde-b50d-566f98bba049",
+            "sourceColumn": "FiscalMonthYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FiscalQuarterYear",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "d034e21f-09f1-45c2-b928-b98988edb7a8",
+            "sourceColumn": "FiscalQuarterYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DayOfMonthNumber",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "2e462797-2f89-4d16-9137-ee311580c0f9",
+            "sourceColumn": "DayOfMonthNumber",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DayName",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "27bb5721-dcc6-47c4-9af1-35e0fff0637a",
+            "sourceColumn": "DayName",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "9261939b-56d8-4199-9a17-a5539812ae3c",
+        "partitions": [
+          {
+            "name": "454_calendar",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\Users\\Med Amine\\Downloads\\Taxi Trip\\Taxi Trip\\454_calendar.csv\"),[Delimiter=\",\", Columns=12, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Colonnes renommées\" = Table.RenameColumns(Source,{{\"Column1\", \"Date\"}, {\"Column2\", \"FiscalYear\"}, {\"Column3\", \"FiscalQuarter\"}, {\"Column4\", \"FiscalMonthNumber\"}, {\"Column5\", \"FiscalMonthOfQuarter\"}, {\"Column6\", \"FiscalWeekOfYear\"}, {\"Column7\", \"DayOfWeek\"}, {\"Column8\", \"FiscalMonthName\"}, {\"Column9\", \"FiscalMonthYear\"}, {\"Column10\", \"FiscalQuarterYear\"}, {\"Column11\", \"DayOfMonthNumber\"}, {\"Column12\", \"DayName\"}}),",
+                "    #\"Type modifié\" = Table.TransformColumnTypes(#\"Colonnes renommées\",{{\"Date\", type date}}),",
+                "    #\"Erreurs supprimées\" = Table.RemoveRowsWithErrors(#\"Type modifié\", {\"Date\"}),",
+                "    #\"Lignes filtrées\" = Table.SelectRows(#\"Erreurs supprimées\", each true),",
+                "    #\"Type modifié1\" = Table.TransformColumnTypes(#\"Lignes filtrées\",{{\"DayOfMonthNumber\", Int64.Type}, {\"FiscalQuarterYear\", Int64.Type}, {\"DayOfWeek\", Int64.Type}, {\"FiscalWeekOfYear\", Int64.Type}, {\"FiscalMonthOfQuarter\", Int64.Type}, {\"FiscalMonthNumber\", Int64.Type}, {\"FiscalQuarter\", Int64.Type}, {\"FiscalYear\", Int64.Type}})",
+                "in",
+                "    #\"Type modifié1\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "data_dictionary",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Field",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a9b2a241-1fdb-428e-897e-24b97c5b29d4",
+            "sourceColumn": "Field",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Description",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7134e873-550d-492a-a653-55da8524fbfe",
+            "sourceColumn": "Description",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "6b7251bd-5a71-452f-924d-5eb0133f0e38",
+        "partitions": [
+          {
+            "name": "data_dictionary",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\Users\\Med Amine\\Downloads\\Taxi Trip\\Taxi Trip\\data_dictionary.csv\"),[Delimiter=\",\", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Colonnes renommées\" = Table.RenameColumns(Source,{{\"Column1\", \"Field\"}, {\"Column2\", \"Description\"}}),",
+                "    #\"Type modifié\" = Table.TransformColumnTypes(#\"Colonnes renommées\",{{\"Field\", type text}}),",
+                "    #\"Erreurs supprimées\" = Table.RemoveRowsWithErrors(#\"Type modifié\", {\"Field\"}),",
+                "    #\"Premières lignes supprimées\" = Table.Skip(#\"Erreurs supprimées\",1)",
+                "in",
+                "    #\"Premières lignes supprimées\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "taxi_zones",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "LocationID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "3c9e742a-e08b-426a-90b9-ef3a6a690377",
+            "sourceColumn": "LocationID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Borough",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0ce0bbc1-4d72-4f9c-991c-784008f5cbc8",
+            "sourceColumn": "Borough",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Zone",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataCategory": "Place",
+            "dataType": "string",
+            "lineageTag": "dfff2534-412f-4d2b-ae40-ed0ebbcba05f",
+            "sourceColumn": "Zone",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "service_zone",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b9ddcb45-d6c2-4021-9829-729c976ffcd6",
+            "sourceColumn": "service_zone",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "b129c4d4-f265-407c-91cf-2e7d3b4bea98",
+        "partitions": [
+          {
+            "name": "taxi_zones",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\Users\\Med Amine\\Downloads\\Taxi Trip\\Taxi Trip\\taxi_zones.csv\"),[Delimiter=\",\", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Colonnes renommées\" = Table.RenameColumns(Source,{{\"Column1\", \"LocationID\"}, {\"Column2\", \"Borough\"}, {\"Column3\", \"Zone\"}, {\"Column4\", \"service_zone\"}}),",
+                "    #\"Type modifié\" = Table.TransformColumnTypes(#\"Colonnes renommées\",{{\"LocationID\", type number}}),",
+                "    #\"Erreurs supprimées\" = Table.RemoveRowsWithErrors(#\"Type modifié\", {\"LocationID\"}),",
+                "    #\"Type modifié1\" = Table.TransformColumnTypes(#\"Erreurs supprimées\",{{\"LocationID\", Int64.Type}})",
+                "in",
+                "    #\"Type modifié1\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "taxi_trips",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "VendorID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "211bf107-f1f6-4b1d-8d60-f8b323b27da4",
+            "sourceColumn": "VendorID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "lpep_pickup_datetime",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "3b139016-740c-48b6-b612-728ab08ba473",
+            "sourceColumn": "lpep_pickup_datetime",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "lpep_dropoff_datetime",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "c47c80ba-c07d-4605-a139-03fbf77f82e9",
+            "sourceColumn": "lpep_dropoff_datetime",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "store_and_fwd_flag",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1ea141d9-c8b6-4710-b315-5bd4634b1892",
+            "sourceColumn": "store_and_fwd_flag",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "RatecodeID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "074a5afc-bc88-4aba-aaa7-321268093edc",
+            "sourceColumn": "RatecodeID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PULocationID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "222d22a4-cdb0-4687-ab7f-0b629ba54632",
+            "sourceColumn": "PULocationID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DOLocationID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "016b568f-44c6-42ff-9660-fa6bb250cdd4",
+            "sourceColumn": "DOLocationID",
+            "summarizeBy": "count"
+          },
+          {
+            "name": "passenger_count",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e06317fb-a5b1-4dce-9864-39239ad8a720",
+            "sourceColumn": "passenger_count",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "trip_distance",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "5568504f-71ec-4359-aed1-fe5af33da0f3",
+            "sourceColumn": "trip_distance",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "fare_amount",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "1d6b9c64-b1b1-46c0-8f21-33a63be59532",
+            "sourceColumn": "fare_amount",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "extra",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "258e41f3-dfe6-4774-b5a5-1376c165ed0a",
+            "sourceColumn": "extra",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "mta_tax",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f1d20d12-7141-4d60-a0a8-137270f64f7f",
+            "sourceColumn": "mta_tax",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "tip_amount",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "898aef51-bdca-41c7-b959-918e89ffcfaf",
+            "sourceColumn": "tip_amount",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "tolls_amount",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "89087754-d174-4edf-86c1-2bf2e8aad4e5",
+            "sourceColumn": "tolls_amount",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "improvement_surcharge",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "427e4e18-c588-48bf-bfd5-066d7b2b73ad",
+            "sourceColumn": "improvement_surcharge",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_amount",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "18bac79e-8892-46d6-91f1-f819de69d137",
+            "sourceColumn": "total_amount",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "payment_type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "81bbf148-dd51-4a85-95c0-3ae396ecbe92",
+            "sourceColumn": "payment_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "trip_type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1c3bd759-b705-4341-9b6e-23c75703e8e0",
+            "sourceColumn": "trip_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Temps_deplacement",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "1bb93e22-e060-4b67-9594-68ef3a847399",
+            "sourceColumn": "Temps_deplacement",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Corrected_Pickup_Datetime",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "602cb812-3f39-432e-b9e3-e16c2c6b6647",
+            "sourceColumn": "Corrected_Pickup_Datetime",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Corrected_Dropoff_Datetime",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f33053b9-3a1d-4dc4-88cb-e94907a7448e",
+            "sourceColumn": "Corrected_Dropoff_Datetime",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "calculated_distance",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "21e31c2d-e9f0-4433-bbdb-9af15ecb6523",
+            "sourceColumn": "calculated_distance",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "calculated_fare_amount",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "68ce2d1a-5a23-48d4-9f71-374515eac24d",
+            "sourceColumn": "calculated_fare_amount",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "ffbdc5d5-c841-4e34-a66d-491afcdb1626",
+            "sourceColumn": "date",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "0ad2fc54-7011-4d5e-bd8b-9a5b50aad366",
+        "partitions": [
+          {
+            "name": "taxi_trips",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Folder.Files(\"C:\\Users\\Med Amine\\Downloads\\Taxi Trip\\Taxi Trip\\taxi_trips\"),",
+                "    #\"Fichiers masqués filtrés1\" = Table.SelectRows(Source, each [Attributes]?[Hidden]? <> true),",
+                "    #\"Appeler une fonction personnalisée1\" = Table.AddColumn(#\"Fichiers masqués filtrés1\", \"Transformer le fichier (2)\", each #\"Transformer le fichier (2)\"([Content])),",
+                "    #\"Colonnes renommées1\" = Table.RenameColumns(#\"Appeler une fonction personnalisée1\", {\"Name\", \"Source.Name\"}),",
+                "    #\"Autres colonnes supprimées1\" = Table.SelectColumns(#\"Colonnes renommées1\", {\"Source.Name\", \"Transformer le fichier (2)\"}),",
+                "    #\"Colonne de tables développée1\" = Table.ExpandTableColumn(#\"Autres colonnes supprimées1\", \"Transformer le fichier (2)\", Table.ColumnNames(#\"Transformer le fichier (2)\"(#\"Exemple de fichier (2)\"))),",
+                "    #\"Lignes filtrées\" = Table.SelectRows(#\"Colonne de tables développée1\", each true),",
+                "    #\"Colonnes supprimées\" = Table.RemoveColumns(#\"Lignes filtrées\",{\"Source.Name\"}),",
+                "    #\"Colonnes renommées\" = Table.RenameColumns(#\"Colonnes supprimées\",{{\"Column1\", \"VendorID\"}, {\"Column2\", \"lpep_pickup_datetime\"}, {\"Column3\", \"lpep_dropoff_datetime\"}, {\"Column4\", \"store_and_fwd_flag\"}, {\"Column5\", \"RatecodeID\"}, {\"Column6\", \"PULocationID\"}, {\"Column7\", \"DOLocationID\"}, {\"Column8\", \"passenger_count\"}, {\"Column9\", \"trip_distance\"}, {\"Column10\", \"fare_amount\"}, {\"Column11\", \"extra\"}, {\"Column12\", \"mta_tax\"}, {\"Column13\", \"tip_amount\"}, {\"Column14\", \"tolls_amount\"}, {\"Column15\", \"improvement_surcharge\"}, {\"Column16\", \"total_amount\"}, {\"Column17\", \"payment_type\"}, {\"Column18\", \"trip_type\"}}),",
+                "    #\"Type modifié\" = Table.TransformColumnTypes(#\"Colonnes renommées\",{{\"lpep_pickup_datetime\", type datetime}}),",
+                "    #\"Erreurs supprimées\" = Table.RemoveRowsWithErrors(#\"Type modifié\", {\"lpep_pickup_datetime\"}),",
+                "    #\"Valeur remplacée\" = Table.ReplaceValue(#\"Erreurs supprimées\",\"N\",\"Y\",Replacer.ReplaceText,{\"store_and_fwd_flag\"}),",
+                "    #\"Lignes filtrées1\" = Table.SelectRows(#\"Valeur remplacée\", each [lpep_pickup_datetime] >= #datetime(2017, 1, 1, 0, 0, 0) and [lpep_pickup_datetime] <= #datetime(2020, 12, 31, 0, 0, 0)),",
+                "    #\"Lignes filtrées2\" = Table.SelectRows(#\"Lignes filtrées1\", each [payment_type] <> \"3\" and [payment_type] <> \"5\"),",
+                "    #\"Type modifié1\" = Table.TransformColumnTypes(#\"Lignes filtrées2\",{{\"lpep_pickup_datetime\", type datetime}}),",
+                "    #\"Lignes filtrées3\" = Table.SelectRows(#\"Type modifié1\", each [lpep_pickup_datetime] >= #datetime(2017, 1, 1, 0, 0, 0) or [lpep_pickup_datetime] >= #datetime(2017, 1, 1, 0, 0, 0)),",
+                "    #\"Type modifié2\" = Table.TransformColumnTypes(#\"Lignes filtrées3\",{{\"lpep_dropoff_datetime\", type datetime}}),",
+                "    #\"Lignes filtrées4\" = Table.SelectRows(#\"Type modifié2\", each [lpep_dropoff_datetime] < #datetime(2021, 1, 1, 0, 0, 0) or [lpep_dropoff_datetime] < #datetime(2021, 1, 1, 0, 0, 0)),",
+                "    #\"Soustraction de l'heure d'insertion\" = Table.AddColumn(#\"Lignes filtrées4\", \"Soustraction\", each [lpep_dropoff_datetime] - [lpep_pickup_datetime], type duration),",
+                "    #\"Colonnes renommées2\" = Table.RenameColumns(#\"Soustraction de l'heure d'insertion\",{{\"Soustraction\", \"Temps_deplacement\"}}),",
+                "    #\"Valeur remplacée1\" = Table.ReplaceValue(#\"Colonnes renommées2\",\"\",\"1\",Replacer.ReplaceValue,{\"passenger_count\"}),",
+                "    #\"Colonne conditionnelle ajoutée\" = Table.AddColumn(#\"Valeur remplacée1\", \"Corrected_Pickup_Datetime\", each if [lpep_pickup_datetime] < [lpep_dropoff_datetime] then [lpep_pickup_datetime] else null),",
+                "    #\"Colonne conditionnelle ajoutée1\" = Table.AddColumn(#\"Colonne conditionnelle ajoutée\", \"Corrected_Dropoff_Datetime\", each if [lpep_dropoff_datetime] > [lpep_pickup_datetime] then [lpep_dropoff_datetime] else null),",
+                "    #\"Type modifié3\" = Table.TransformColumnTypes(#\"Colonne conditionnelle ajoutée1\",{{\"trip_distance\", type number}}),",
+                "    #\"Lignes filtrées5\" = Table.SelectRows(#\"Type modifié3\", each [trip_distance] <> 0),",
+                "    #\"Type modifié4\" = Table.TransformColumnTypes(#\"Lignes filtrées5\",{{\"fare_amount\", type number}}),",
+                "    #\"Lignes filtrées6\" = Table.SelectRows(#\"Type modifié4\", each [fare_amount] <> 0),",
+                "    #\"Colonne conditionnelle ajoutée2\" = Table.AddColumn(#\"Lignes filtrées6\", \"Personnalisé\", each if [fare_amount] > 0 and [trip_distance] = 0 then ([fare_amount]-2.5)/2.5 else [trip_distance]),",
+                "    #\"Valeur remplacée2\" = Table.ReplaceValue(#\"Colonne conditionnelle ajoutée2\",each [trip_distance],each if [fare_amount] > 0 and [trip_distance] = 0 then ([fare_amount]-2.5)/2.5 else [trip_distance],Replacer.ReplaceValue,{\"trip_distance\"}),",
+                "    #\"Colonnes renommées3\" = Table.RenameColumns(#\"Valeur remplacée2\",{{\"Personnalisé\", \"calculated_distance\"}}),",
+                "    #\"Colonne conditionnelle ajoutée3\" = Table.AddColumn(#\"Colonnes renommées3\", \"calculated_fare_amount\", each if [trip_distance] > 0 and [fare_amount] = 0 then 2.5+([trip_distance]*2.5) else [fare_amount]),",
+                "    #\"Valeur remplacée3\" = Table.ReplaceValue(#\"Colonne conditionnelle ajoutée3\",each [fare_amount],each if [trip_distance] > 0 and [fare_amount] = 0 then 2.5+([trip_distance]*2.5) else [fare_amount],Replacer.ReplaceValue,{\"fare_amount\"}),",
+                "    #\"Type modifié5\" = Table.TransformColumnTypes(#\"Valeur remplacée3\",{{\"PULocationID\", Int64.Type}, {\"DOLocationID\", Int64.Type}, {\"passenger_count\", Int64.Type}}),",
+                "    #\"Duplication de la colonne\" = Table.DuplicateColumn(#\"Type modifié5\", \"lpep_pickup_datetime\", \"lpep_pickup_datetime - Copier\"),",
+                "    #\"Type modifié6\" = Table.TransformColumnTypes(#\"Duplication de la colonne\",{{\"lpep_pickup_datetime - Copier\", type date}}),",
+                "    #\"Colonnes renommées4\" = Table.RenameColumns(#\"Type modifié6\",{{\"lpep_pickup_datetime - Copier\", \"date\"}}),",
+                "    #\"Type modifié7\" = Table.TransformColumnTypes(#\"Colonnes renommées4\",{{\"trip_distance\", type number}, {\"fare_amount\", Int64.Type}})",
+                "in",
+                "    #\"Type modifié7\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Taxi Messure",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "lineageTag": "f7690388-d741-4860-8be7-9ebb20a6a2d7",
+        "measures": [
+          {
+            "name": "Total Fare Amount",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "SUM(taxi_trips[fare_amount])",
+            "lineageTag": "27c23c04-e376-4517-8ebc-f372307ed7fa"
+          },
+          {
+            "name": "Total Trips",
+            "expression": "SUM(taxi_trips[passenger_count])",
+            "formatString": "0",
+            "lineageTag": "ed25126d-9bf6-4872-8101-5d3d285e5e50"
+          },
+          {
+            "name": "AVG Fare Amount",
+            "expression": "CALCULATE(AVERAGE(taxi_trips[fare_amount]))",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "b4b43c4a-9569-4208-8121-3f6863d68a0e"
+          },
+          {
+            "name": "AVG Distance",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "CALCULATE(AVERAGE(taxi_trips[trip_distance]))",
+            "lineageTag": "ff18f557-e4af-4268-b641-21105073cee2"
+          },
+          {
+            "name": "Total Passengers",
+            "expression": "SUM(taxi_trips[passenger_count])",
+            "formatString": "0",
+            "lineageTag": "fb7c7b05-bb02-43c9-a278-460f1d1b5a43"
+          },
+          {
+            "name": "AverageFarePerTrip",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "AVERAGE(taxi_trips[fare_amount])",
+              ""
+            ],
+            "lineageTag": "eca3ddb3-37e3-4f3b-b02a-e77556465a6d"
+          },
+          {
+            "name": "AverageDistancePerTrip",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "AVERAGE(taxi_trips[trip_distance])",
+            "lineageTag": "d5dba7f1-6ee8-48bf-8089-0d7d6e5b6889"
+          },
+          {
+            "name": "WeekOverWeekChange",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    CALCULATE(",
+              "        COUNTROWS(taxi_trips),",
+              "        taxi_trips[lpep_pickup_datetime] >= MAX('454_calendar'[Date]) &&",
+              "        taxi_trips[lpep_pickup_datetime] < MAX('454_calendar'[Date]) + 7",
+              "    ),",
+              "    CALCULATE(",
+              "        COUNTROWS(taxi_trips),",
+              "        taxi_trips[lpep_pickup_datetime] >= MAX('454_calendar'[Date]) - 7 &&",
+              "        taxi_trips[lpep_pickup_datetime] < MAX('454_calendar'[Date])",
+              "    )",
+              ") - 1",
+              ""
+            ],
+            "lineageTag": "eae5090f-c4e3-4008-b909-0db9cee17830"
+          },
+          {
+            "name": "MostPopularPickupLocation",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    COUNTROWS(taxi_trips),",
+              "    KEEPFILTERS(VALUES(taxi_trips[PULocationID]))",
+              ")",
+              ""
+            ],
+            "formatString": "0",
+            "lineageTag": "28c3d71f-cd0c-4fef-844c-6716a9f0b080"
+          },
+          {
+            "name": "TripsPerPickupLocation",
+            "expression": "CALCULATE(COUNTROWS('taxi_trips'), taxi_trips[PULocationID]) ",
+            "formatString": "0",
+            "lineageTag": "9c9c9456-b1fa-4c82-abbf-0e98a0d72945"
+          },
+          {
+            "name": "TripsPerDropoffLocation",
+            "expression": "CALCULATE(COUNTROWS('taxi_trips'), taxi_trips[DOLocationID])",
+            "formatString": "0",
+            "lineageTag": "bf2da9fd-840a-45ed-bbe6-7e7cb5c97d90"
+          },
+          {
+            "name": "TripsPerWeek",
+            "expression": "COUNTROWS('taxi_trips')",
+            "formatString": "0",
+            "lineageTag": "e7e5065f-5106-425f-a4ff-a4f93b10e619"
+          },
+          {
+            "name": "Weeks",
+            "expression": "DISTINCTCOUNT('454_calendar'[FiscalWeekOfYear])",
+            "formatString": "0",
+            "lineageTag": "3b730651-41f8-4206-bc02-bf22df125a49"
+          },
+          {
+            "name": "AverageTripsPerWeek",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "DIVIDE([TripsPerWeek], [Weeks])",
+            "lineageTag": "a4a61d12-1915-4186-be92-5bbdaa768acf"
+          },
+          {
+            "name": "PickupsByLocation",
+            "expression": [
+              "",
+              "COUNTROWS(",
+              "    FILTER(",
+              "        'taxi_trips',",
+              "        NOT(ISBLANK(RELATED(taxi_zones[Borough])))",
+              "    )",
+              ")",
+              ""
+            ],
+            "formatString": "0",
+            "lineageTag": "54625e38-7957-4ccb-ad0c-af98fe451fe8"
+          },
+          {
+            "name": "Total trip count",
+            "expression": "COUNT(taxi_trips[Corrected_Pickup_Datetime]) ",
+            "formatString": "0",
+            "lineageTag": "306e583c-f227-4f6b-988a-0230ab4b3241"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Taxi Messure",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"i44FAA==\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#\"Colonne 1\" = _t]),",
+                "    #\"Colonnes supprimées\" = Table.RemoveColumns(Source,{\"Colonne 1\"})",
+                "in",
+                "    #\"Colonnes supprimées\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
